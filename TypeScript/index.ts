@@ -1,8 +1,9 @@
 // npx tsc index.ts
 // npx ts-node index.ts หรือ node index.ts
 // npm init
-const data = 1
-console.log(data)
+import a from './DataExample'
+// const data = 1
+// console.log(data)
 //session 0 debug
 //session 1 variable 
 //session 2 data type (primative + object + array)
