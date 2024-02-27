@@ -10,6 +10,7 @@ console.log(data)
 //session 3 function 
 //session 3.1 function return type
 //session 4 block scope 
+//session statement if for while
 //session 6 array and function 
 //session 7 export 
 //session 8 import 
