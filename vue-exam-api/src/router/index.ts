@@ -31,6 +31,14 @@ const routes = [
                 // which is lazy-loaded when the route is visited.
                 component: () => import('@/views/Comment.vue'),
             },
+            {
+                path: '/product',
+                name: 'Product',
+                // route level code-splitting
+                // this generates a separate chunk (Home-[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: () => import('@/views/Product.vue'),
+            },
         ],
     },
 ]
