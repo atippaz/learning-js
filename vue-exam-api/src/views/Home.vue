@@ -1,5 +1,10 @@
 <template>
     <div class="ma-8 pa-4">
+        <div class="d-flex justify-end">
+            <v-btn class="my-2" @click="router.push({ name: 'Product' })"
+                >product page</v-btn
+            >
+        </div>
         <v-card>
             <v-data-table :items="data">
                 <template v-slot:item="{ item }: any">
