@@ -38,12 +38,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { useMoney } from '@/composables/useMoney'
+import { inject, ref } from 'vue'
+import {  useMoneyPluginSymbol } from '@/composables/useMoney'
 import router from '@/router'
 const textValue = ref('')
+const  useMoney  = inject(useMoneyPluginSymbol)!
+const { money, addMoney,init } = useMoney
+
 const open = ref(false)
-const { money, addMoney } = useMoney()
 function close() {
     open.value = false
     textValue.value = ''
@@ -58,4 +60,10 @@ function add() {
     alert('number pls')
     textValue.value = ''
 }
+function updateMoney(){
+    init()
+}
+defineExpose({
+    updateMoney
+  })
 </script>

@@ -4,7 +4,7 @@
         <v-container>
             <v-row>
                 <v-col cols="4" v-for="product in data">
-                    <ProductCard class="h-full w-full" :product="product">
+                    <ProductCard @click="openProductDetails(product.id)" class="h-full w-full" :product="product">
                     </ProductCard>
                 </v-col>
             </v-row>
@@ -13,17 +13,20 @@
 </template>
 <script setup lang="ts">
 import ProductCard, { type Product } from '@/components/ProductCard.vue'
+import { useProductApi } from '@/composables/useProductApi'
+import router from '@/router'
 import { onMounted, ref } from 'vue'
 const money = ref(0)
 const data = ref<Product[]>([])
+const productApi = useProductApi()
+function openProductDetails(productId:string){
+    router.push({name:'ProductDetail',params:{productId}})
+}
 onMounted(async () => {
-    await fetch('https://dummyapi.online/api/products')
-        .then((response) => response.json())
-        .then((json) => {
-            data.value = json.map(
-                (x: any) =>
+    data.value  =   (await productApi.getAll()).map((x: any) =>
                     <Product>{
                         basePrice: x.basePrice,
+                        stock:x.stock,
                         brand: x.brand,
                         catagory: x.catagory,
                         description: x.description,
@@ -31,8 +34,6 @@ onMounted(async () => {
                         inStock: x.inStock,
                         name: x.name,
                         thumbnailImage: x.thumbnailImage,
-                    }
-            )
-        })
+                    })
 })
 </script>
