@@ -14,14 +14,20 @@
             </div>
         </v-card-text>
         <v-card-actions class="d-flex justify-end">
-            <v-btn>details</v-btn>
+            <v-btn @click="openProductDetails(product.id)" color="info" variant="flat">details</v-btn>
         </v-card-actions>
     </v-card>
 </template>
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const props = defineProps<{
     product: Product
 }>()
+function openProductDetails(productId:string){
+    router.push({name:'ProductDetail',params:{productId}})
+}
 export interface Product {
     catagory: string
     name: string

@@ -1,7 +1,7 @@
 <template>
-    <v-app-bar flat>
-        <v-app-bar-title>
-            <div class="d-flex justify-space-between px-4 mx-6">
+    <v-app-bar flat  >
+        <v-app-bar-title  >
+            <div class="d-flex align-center justify-space-between px-4 mx-6">
                 <div
                     style="cursor: pointer"
                     @click="router.push({ name: 'Home' })"
@@ -9,10 +9,10 @@
                     <v-icon icon="mdi-circle-slice-4" />
                     Base Preset
                 </div>
-                <div class="d-flex justify-space-between">
+                <div class="d-flex justify-space-between align-center  ">
                     <div>Your have : {{ money }} baht</div>
                     <div>
-                        <v-btn @click="open = true"> Topup </v-btn>
+                        <v-btn class="ml-4"  @click="open = true" color="green" variant="flat"> Topup </v-btn>
                     </div>
                 </div>
             </div>
@@ -30,8 +30,8 @@
 
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn text="Close Dialog" @click="close"></v-btn>
-                <v-btn text="add Money" @click="add"></v-btn>
+                <v-btn text="Close Dialog" color="red" variant="flat" @click="close"></v-btn>
+                <v-btn text="add Money" color="green" variant="flat" @click="add"></v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>

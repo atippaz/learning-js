@@ -49,8 +49,14 @@
                                     </div>
                                 </div>
                             </v-card-text>
-                            <v-card-actions class="d-flex justify-end">
-                                <v-btn color="green" @click="makePurchase">Buy IT!</v-btn>
+                            <v-card-actions class="d-flex justify-space-between">
+                                <v-btn
+                                    color="red"
+                                    @click="router.back()"
+                                     variant="flat"
+                                    >cancel</v-btn
+                                >
+                                <v-btn color="green"  variant="flat" @click="makePurchase">Buy IT!</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-col>

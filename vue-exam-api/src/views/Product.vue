@@ -4,7 +4,7 @@
         <v-container>
             <v-row>
                 <v-col cols="4" v-for="product in data">
-                    <ProductCard @click="openProductDetails(product.id)" class="h-full w-full" :product="product">
+                    <ProductCard  class="h-full w-full" :product="product">
                     </ProductCard>
                 </v-col>
             </v-row>
@@ -19,9 +19,7 @@ import { onMounted, ref } from 'vue'
 const money = ref(0)
 const data = ref<Product[]>([])
 const productApi = useProductApi()
-function openProductDetails(productId:string){
-    router.push({name:'ProductDetail',params:{productId}})
-}
+
 onMounted(async () => {
     data.value  =   (await productApi.getAll()).map((x: any) =>
                     <Product>{
