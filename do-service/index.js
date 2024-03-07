@@ -37,7 +37,22 @@ app.get('/', function (request, response, next) {
   }
   })
 });
-
+app.get('/list', function (request, response, next) {
+  var params = {
+    Bucket: 'teststorageapi',
+    Delimiter: ',',
+    Marker: '',
+    Prefix: '',
+    MaxKeys: 2
+  };
+  let a= null
+  s3.listObjects(params, function(err, data) {
+    if (err) console.log(err, err.stack); // รายงานข้อผิดพลาดถ้ามี
+    else    {  a= data.Contents}           // แสดงข้อมูลทั้งหมดที่ได้รับ
+  });  
+  console.log(a);
+  response.end(a)
+});
 app.listen(3001, function () {
   console.log('Server listening on port 3001.');
 });
